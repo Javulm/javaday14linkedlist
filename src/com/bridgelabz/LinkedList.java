@@ -1,11 +1,11 @@
 package com.bridgelabz;
 
-public class LinkedList<T> {
+public class LinkedList {
 
-	Node<T> head;
-	Node<T> tail;
-	public void add(T data) {
-		Node<T> newNode = new Node(data);
+	Node head;
+	Node tail;
+	public void add(int data) {
+		Node newNode = new Node(data);
 		if (head == null) {
 			head = newNode;
 			tail = newNode;
@@ -14,8 +14,8 @@ public class LinkedList<T> {
 			tail = newNode;
 		}
 	}
-	public void push(T data) {
-		Node<T> newNode = new Node(data);
+	public void push(int data) {
+		Node newNode = new Node(data);
 		if (head == null) {
 			head = newNode;
 			tail = newNode;
@@ -28,7 +28,7 @@ public class LinkedList<T> {
 		if (head == null) {
 			System.out.println("Linked list is Empty");
 		} else {
-			Node<T> temp = head;
+			Node temp = head;
 			while (temp != null) {
 				System.out.print(temp.data + " ");
 				temp = temp.next;
