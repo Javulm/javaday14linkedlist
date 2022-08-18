@@ -4,6 +4,7 @@ public class LinkedList {
 
 	Node head;
 	Node tail;
+  
 	public Node add(int data) {
 		Node newNode = new Node(data);
 		if (head == null) {

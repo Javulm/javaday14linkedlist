@@ -29,6 +29,14 @@ public class LinkedListMain {
 				list.show();
 				System.out.println(" ");
 				break;
+        
+      case 3:
+				 list.add(56);
+				 list.add(30);
+				 list.add(70);
+				 list.show();
+				 System.out.println(" ");
+				 break;
 
 			case 4 :
 				Node prevNode = list.add(56);
@@ -52,3 +60,4 @@ public class LinkedListMain {
 		}
 	}
 }
+
