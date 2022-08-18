@@ -4,7 +4,8 @@ public class LinkedList {
 
 	Node head;
 	Node tail;
-	public void add(int data) {
+  
+	public Node add(int data) {
 		Node newNode = new Node(data);
 		if (head == null) {
 			head = newNode;
@@ -13,6 +14,7 @@ public class LinkedList {
 			tail.next = newNode;
 			tail = newNode;
 		}
+		return newNode;
 	}
 	public void push(int data) {
 		Node newNode = new Node(data);
@@ -23,6 +25,15 @@ public class LinkedList {
 			newNode.next = head;
 			head = newNode;
 		}
+	}
+	public void insertAfter(Node prevNode, int data) {
+		if (prevNode == null) {
+			System.out.println("Prev Node should not be null");
+			return;
+		}
+		Node newNode = new Node(data);
+		newNode.next = prevNode.next;
+		prevNode.next = newNode;
 	}
 	public void show() {
 		if (head == null) {
@@ -35,6 +46,14 @@ public class LinkedList {
 			}
 			System.out.println();
 		}
-
 	}
+	 public int pop() {
+	        int popData = 0;
+	        if (head == null) {
+	            System.out.println("Stack over flow ");
+	        }
+	        popData = head.data;
+	        head = head.next;
+	        return popData;
+}
 }
