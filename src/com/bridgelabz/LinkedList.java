@@ -47,13 +47,26 @@ public class LinkedList {
 			System.out.println();
 		}
 	}
-	 public int pop() {
-	        int popData = 0;
-	        if (head == null) {
-	            System.out.println("Stack over flow ");
-	        }
-	        popData = head.data;
-	        head = head.next;
-	        return popData;
-}
+	public int pop() {
+		int popData = 0;
+		if (head == null) {
+			System.out.println("Stack is empty ");
+		}
+		popData = head.data;
+		head = head.next;
+		return popData;
+	}
+	public void popLast() {
+		if (head == null) {
+			System.out.println("Stack is empty");
+			System.out.println(head.data);
+			head = null;
+		}
+		Node temp = head;
+		while (temp.next.next != null) {
+			temp = temp.next;
+		}
+		temp.next = null;
+		System.out.println("Delete last node::");
+	}
 }
