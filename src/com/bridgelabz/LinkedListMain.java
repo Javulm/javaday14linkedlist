@@ -7,12 +7,13 @@ public class LinkedListMain {
 		LinkedList list = new LinkedList();
 		Scanner sc = new Scanner(System.in);
 		System.out.println(
-				"Choose your option:\n" + "1. Create a simple LinkedList\n" // uc1
-						+ "2. Create Linked List by adding 30 and 56 to 70\n" // uc2
-						+ "3. Create Linked List by apending 30 and 70 to 56\n" // uc3
-						+ "4. Insert 30 between 56 & 70\n" // uc4
+				"Choose your option:\n" + "1. Create a simple LinkedList\n"
+						+ "2. Create Linked List by adding 30 and 56 to 70\n"
+						+ "3. Create Linked List by apending 30 and 70 to 56\n"
+						+ "4. Insert 30 between 56 & 70\n"
 						+ "5. Ability to delete the first element\n"
-						+ "6. Ability to delete the last element\\n ");// uc5
+						+ "6. Ability to delete the last element\n"
+						+ "7. Search or find element 30\n");
 		int option = sc.nextInt();
 		System.out.println();
 		switch (option) {
@@ -23,7 +24,6 @@ public class LinkedListMain {
 				list.show();
 				System.out.println(" ");
 				break;
-
 			case 2 :
 				list.push(70);
 				list.push(30);
@@ -31,15 +31,6 @@ public class LinkedListMain {
 				list.show();
 				System.out.println(" ");
 				break;
-        
-      case 3:
-				 list.add(56);
-				 list.add(30);
-				 list.add(70);
-				 list.show();
-				 System.out.println(" ");
-				 break;
-
 			case 3 :
 				list.add(56);
 				list.add(30);
@@ -57,7 +48,6 @@ public class LinkedListMain {
 				list.show();
 				System.out.println(" ");
 				break;
-
 			case 5 :
 				list.add(56);
 				list.add(30);
@@ -72,9 +62,17 @@ public class LinkedListMain {
 				list.add(70);
 				list.show();
 				list.popLast();
-                list.show();
-                break;
+				list.show();
+				break;
+			case 7 :
+				list.add(56);
+				list.add(30);
+				list.add(70);
+				if (list.search(30) == null) {
+		            System.out.println("Element not  found");
+		        } else {
+		            System.out.println("Element found");
+		        }
 		}
 	}
 }
-
