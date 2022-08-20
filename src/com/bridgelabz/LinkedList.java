@@ -4,7 +4,7 @@ public class LinkedList {
 
 	Node head;
 	Node tail;
-  
+
 	public Node add(int data) {
 		Node newNode = new Node(data);
 		if (head == null) {
@@ -69,4 +69,16 @@ public class LinkedList {
 		temp.next = null;
 		System.out.println("Delete last node::");
 	}
+	public Node search(int searchData) {
+		// TODO Auto-generated method stub
+	        Node temp = head;
+	        while (temp != null) {
+	            if (temp.data == searchData) {
+	                return temp;
+	            }
+	            temp = temp.next;
+	        }
+	        return null;
+	}
+	
 }
