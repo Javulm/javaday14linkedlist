@@ -71,14 +71,26 @@ public class LinkedList {
 	}
 	public Node search(int searchData) {
 		// TODO Auto-generated method stub
-	        Node temp = head;
-	        while (temp != null) {
-	            if (temp.data == searchData) {
-	                return temp;
-	            }
-	            temp = temp.next;
-	        }
-	        return null;
+		Node temp = head;
+		while (temp != null) {
+			if (temp.data == searchData) {
+				return temp;
+			}
+			temp = temp.next;
+		}
+		return null;
 	}
-	
+	public boolean searchInsert(int searchData, int insertData) {
+		// TODO Auto-generated method stub
+		Node newNode = new Node(insertData);
+		Node searchedNode = search(searchData);
+		if (searchedNode == null)
+			return false;
+		else {
+			newNode.next = searchedNode.next;
+			searchedNode.next = newNode;
+			return true;
+		}
+	}
+
 }
