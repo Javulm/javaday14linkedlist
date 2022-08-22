@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class LinkedListMain {
 	public static void main(String[] args) {
-		LinkedList<Integer> list = new LinkedList();
+		LinkedList list = new LinkedList();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Choose your option:\n"
 				+ "1. Create a simple LinkedList\n"
@@ -13,9 +13,9 @@ public class LinkedListMain {
 				+ "4. Insert 30 between 56 & 70\n"
 				+ "5. Ability to delete the first element\n"
 				+ "6. Ability to delete the last element\n"
-				+ "7. Search or find element 30\n"
-				+ "8. Insert 40 after 30\n"
-				+ "9. Delete 40 from linked list");
+				+ "7. Search or find element 30\n" + "8. Insert 40 after 30\n"
+				+ "9. Delete 40 from linked list\n"
+				+ "10. Ascending order linked list. ");
 		int option = sc.nextInt();
 		System.out.println();
 		switch (option) {
@@ -64,7 +64,7 @@ public class LinkedListMain {
 				list.add(30);
 				list.add(70);
 				list.show();
-				int popLast=list.popLast();
+				int popLast = list.popLast();
 				System.out.println("Popped last element" + popLast);
 				list.show();
 				break;
@@ -83,23 +83,31 @@ public class LinkedListMain {
 				list.add(30);
 				list.add(70);
 				list.show();
-				boolean success= list.searchAndInsert(30, 40);
+				boolean success = list.searchAndInsert(30, 40);
 				if (success)
-				System.out.println("searched and inserted element");
+					System.out.println("searched and inserted element");
 				else
 					System.out.println("unseccessfull!!");
 				list.show();
 				break;
-			case 9:
+			case 9 :
 				list.add(56);
 				list.add(30);
 				list.add(40);
 				list.add(70);
 				list.show();
 				list.remove(3);
-				int size=list.getSize();
+				int size = list.getSize();
 				list.show();
-				System.out.println("Size:"+size);
+				System.out.println("Size:" + size);
+			case 10 :
+				list.add(56);
+				list.add(30);
+				list.add(40);
+				list.add(70);
+				list.show();
+				list.sort();
+				list.show();
 		}
 	}
 }
