@@ -1,96 +1,86 @@
 package com.bridgelabz;
 
-public class LinkedList {
+public class LinkedList<T> {
 
-	Node head;
-	Node tail;
+	Node<T> head;
+	Node<T> tail;
 
-	public Node add(int data) {
-		Node newNode = new Node(data);
+	public void add(T data) {
+		Node<T> newNode = new Node(data);
 		if (head == null) {
 			head = newNode;
 			tail = newNode;
 		} else {
-			tail.next = newNode;
+			tail.setNext(newNode);
 			tail = newNode;
 		}
-		return newNode;
 	}
-	public void push(int data) {
-		Node newNode = new Node(data);
+	public void push(T data) {
+		Node<T> newNode = new Node<T>(data);
 		if (head == null) {
 			head = newNode;
 			tail = newNode;
 		} else {
-			newNode.next = head;
+			newNode.setNext(head);
 			head = newNode;
 		}
 	}
-	public void insertAfter(Node prevNode, int data) {
-		if (prevNode == null) {
-			System.out.println("Prev Node should not be null");
-			return;
+	public Node<T> search(T searchData) {
+		Node<T> temp = head;
+		while (temp != null) {
+			if (temp.getData().equals(searchData))
+				return temp;
+			temp = (Node<T>) temp.getNext();
 		}
-		Node newNode = new Node(data);
-		newNode.next = prevNode.next;
-		prevNode.next = newNode;
+		return null;
+	}
+
+	public boolean searchAndInsert(T searchData, T insertData) {
+		Node<T> newMyNode = new Node(insertData);
+		Node<T> searchedMyNode = search(searchData);
+		if (searchedMyNode == null)
+			return false;
+		else {
+			newMyNode.setNext(searchedMyNode.getNext());
+			searchedMyNode.setNext(newMyNode);
+			return true;
+		}
 	}
 	public void show() {
 		if (head == null) {
 			System.out.println("Linked list is Empty");
 		} else {
-			Node temp = head;
+			Node<T> temp = head;
 			while (temp != null) {
-				System.out.print(temp.data + " ");
-				temp = temp.next;
+				System.out.print(temp.getData() + " ");
+				temp = (Node<T>) temp.getNext();
 			}
 			System.out.println();
 		}
 	}
-	public int pop() {
-		int popData = 0;
-		if (head == null) {
-			System.out.println("Stack is empty ");
+	public T pop() {
+		if (head == null)
+			return null;
+		else {
+			T data = head.getData();
+			head = (Node<T>) head.getNext();
+			return data;
 		}
-		popData = head.data;
-		head = head.next;
-		return popData;
 	}
-	public void popLast() {
+	public T popLast() {
 		if (head == null) {
 			System.out.println("Stack is empty");
-			System.out.println(head.data);
+			System.out.println(head.getData());
 			head = null;
 		}
-		Node temp = head;
-		while (temp.next.next != null) {
-			temp = temp.next;
+		Node<T> temp = head;
+		while (temp.getNext() != tail) {
+			temp = temp.getNext();
 		}
-		temp.next = null;
-		System.out.println("Delete last node::");
+		T data = tail.getData();
+		temp.setNext(null);
+		tail = temp;
+		return data;
 	}
-	public Node search(int searchData) {
-		// TODO Auto-generated method stub
-		Node temp = head;
-		while (temp != null) {
-			if (temp.data == searchData) {
-				return temp;
-			}
-			temp = temp.next;
-		}
-		return null;
-	}
-	public boolean searchInsert(int searchData, int insertData) {
-		// TODO Auto-generated method stub
-		Node newNode = new Node(insertData);
-		Node searchedNode = search(searchData);
-		if (searchedNode == null)
-			return false;
-		else {
-			newNode.next = searchedNode.next;
-			searchedNode.next = newNode;
-			return true;
-		}
-	}
-
+	
 }

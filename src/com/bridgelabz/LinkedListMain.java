@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class LinkedListMain {
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		LinkedList<Integer> list = new LinkedList();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Choose your option:\n"
 				+ "1. Create a simple LinkedList\n"
@@ -39,11 +39,11 @@ public class LinkedListMain {
 				System.out.println(" ");
 				break;
 			case 4 :
-				Node prevNode = list.add(56);
+				list.add(56);
 				list.add(70);
 				System.out.println("Before insert");
 				list.show();
-				list.insertAfter(prevNode, 30);
+				list.searchAndInsert(56, 30);
 				System.out.println("After insert");
 				list.show();
 				System.out.println(" ");
@@ -73,17 +73,19 @@ public class LinkedListMain {
 				} else {
 					System.out.println("Element found");
 				}
+				break;
 			case 8 :
 				list.add(56);
 				list.add(30);
 				list.add(70);
 				list.show();
-				boolean success= list.searchInsert(30, 40);
+				boolean success= list.searchAndInsert(30, 40);
 				if (success)
 				System.out.println("searched and inserted element");
 				else
 					System.out.println("unseccessfull!!");
 				list.show();
+				break;
 		}
 	}
 }
