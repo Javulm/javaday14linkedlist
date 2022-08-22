@@ -13,7 +13,9 @@ public class LinkedListMain {
 				+ "4. Insert 30 between 56 & 70\n"
 				+ "5. Ability to delete the first element\n"
 				+ "6. Ability to delete the last element\n"
-				+ "7. Search or find element 30\n" + "8. Insert 40 after 30");
+				+ "7. Search or find element 30\n"
+				+ "8. Insert 40 after 30\n"
+				+ "9. Delete 40 from linked list");
 		int option = sc.nextInt();
 		System.out.println();
 		switch (option) {
@@ -54,14 +56,16 @@ public class LinkedListMain {
 				list.add(70);
 				list.show();
 				int pop = list.pop();
-				System.out.println("Deleted element:" + pop);
+				System.out.println("Popped element:" + pop);
 				list.show();
+				break;
 			case 6 :
 				list.add(56);
 				list.add(30);
 				list.add(70);
 				list.show();
-				list.popLast();
+				int popLast=list.popLast();
+				System.out.println("Popped last element" + popLast);
 				list.show();
 				break;
 			case 7 :
@@ -86,6 +90,16 @@ public class LinkedListMain {
 					System.out.println("unseccessfull!!");
 				list.show();
 				break;
+			case 9:
+				list.add(56);
+				list.add(30);
+				list.add(40);
+				list.add(70);
+				list.show();
+				list.remove(3);
+				int size=list.getSize();
+				list.show();
+				System.out.println("Size:"+size);
 		}
 	}
 }

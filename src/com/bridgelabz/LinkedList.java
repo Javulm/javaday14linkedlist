@@ -67,6 +67,19 @@ public class LinkedList<T> {
 			return data;
 		}
 	}
+	public int getSize() {
+		if (head == null)
+			return 0;
+		else {
+			Node<T> temp = head;
+			int count = 0;
+			while (temp != null) {
+				count++;
+				temp = temp.getNext();
+			}
+			return count;
+		}
+	}
 	public T popLast() {
 		if (head == null) {
 			System.out.println("Stack is empty");
@@ -82,5 +95,27 @@ public class LinkedList<T> {
 		tail = temp;
 		return data;
 	}
-	
+	public void remove(int index){
+		int size= getSize();
+		if(head == null)
+			System.out.println("List is Empty.");
+		else if(index < 1 || index > size)
+			System.out.println("invalid index");
+		else if(index == 1)
+				pop();
+		else if(index == size)
+				popLast();
+		else
+		{
+			Node<T> temp, temp1;
+			temp = head;
+			for(int i = 1; i < index -1; i++)
+			{
+				temp = temp.getNext();
+			}
+			temp1 = temp.getNext();
+			temp.setNext(temp1.getNext());
+			size--;
+		}	
+	}
 }
