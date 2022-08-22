@@ -1,28 +1,28 @@
 package com.bridgelabz;
 
-public class Node<T> {
+public class Node {
 
-    private T data;
-    private Node<T> next;
+    private int data;
+    private Node next;
 
-	public Node(T data) {
+	public Node(int data) {
 		this.data=data;
 		this.next=null;
 	}
 
-	public T getData() {
+	public int getData() {
 		return data;
 	}
 
-	public void setData(T data) {
+	public void setData(int data) {
 		this.data = data;
 	}
 
-	public Node<T> getNext() {
+	public Node getNext() {
 		return next;
 	}
 
-	public void setNext(Node<T> next) {
+	public void setNext(Node next) {
 		this.next = next;
 	}
 }

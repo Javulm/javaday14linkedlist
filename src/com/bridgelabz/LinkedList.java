@@ -1,12 +1,12 @@
 package com.bridgelabz;
 
-public class LinkedList<T> {
+public class LinkedList {
 
-	Node<T> head;
-	Node<T> tail;
+	Node head;
+	Node tail;
 
-	public void add(T data) {
-		Node<T> newNode = new Node(data);
+	public void add(int data) {
+		Node newNode = new Node(data);
 		if (head == null) {
 			head = newNode;
 			tail = newNode;
@@ -15,8 +15,8 @@ public class LinkedList<T> {
 			tail = newNode;
 		}
 	}
-	public void push(T data) {
-		Node<T> newNode = new Node<T>(data);
+	public void push(int data) {
+		Node newNode = new Node(data);
 		if (head == null) {
 			head = newNode;
 			tail = newNode;
@@ -25,19 +25,19 @@ public class LinkedList<T> {
 			head = newNode;
 		}
 	}
-	public Node<T> search(T searchData) {
-		Node<T> temp = head;
+	public Node search(int searchData) {
+		Node temp = head;
 		while (temp != null) {
-			if (temp.getData().equals(searchData))
+			if (temp.getData() == searchData)
 				return temp;
-			temp = (Node<T>) temp.getNext();
+			temp = (Node) temp.getNext();
 		}
 		return null;
 	}
 
-	public boolean searchAndInsert(T searchData, T insertData) {
-		Node<T> newMyNode = new Node(insertData);
-		Node<T> searchedMyNode = search(searchData);
+	public boolean searchAndInsert(int searchData, int insertData) {
+		Node newMyNode = new Node(insertData);
+		Node searchedMyNode = search(searchData);
 		if (searchedMyNode == null)
 			return false;
 		else {
@@ -50,20 +50,20 @@ public class LinkedList<T> {
 		if (head == null) {
 			System.out.println("Linked list is Empty");
 		} else {
-			Node<T> temp = head;
+			Node temp = head;
 			while (temp != null) {
 				System.out.print(temp.getData() + " ");
-				temp = (Node<T>) temp.getNext();
+				temp = (Node) temp.getNext();
 			}
 			System.out.println();
 		}
 	}
-	public T pop() {
+	public int pop() {
 		if (head == null)
-			return null;
+			return (Integer) null;
 		else {
-			T data = head.getData();
-			head = (Node<T>) head.getNext();
+			int data = head.getData();
+			head = (Node) head.getNext();
 			return data;
 		}
 	}
@@ -71,7 +71,7 @@ public class LinkedList<T> {
 		if (head == null)
 			return 0;
 		else {
-			Node<T> temp = head;
+			Node temp = head;
 			int count = 0;
 			while (temp != null) {
 				count++;
@@ -80,17 +80,17 @@ public class LinkedList<T> {
 			return count;
 		}
 	}
-	public T popLast() {
+	public int popLast() {
 		if (head == null) {
 			System.out.println("Stack is empty");
 			System.out.println(head.getData());
 			head = null;
 		}
-		Node<T> temp = head;
+		Node temp = head;
 		while (temp.getNext() != tail) {
 			temp = temp.getNext();
 		}
-		T data = tail.getData();
+		int data = tail.getData();
 		temp.setNext(null);
 		tail = temp;
 		return data;
@@ -107,7 +107,7 @@ public class LinkedList<T> {
 				popLast();
 		else
 		{
-			Node<T> temp, temp1;
+			Node temp, temp1;
 			temp = head;
 			for(int i = 1; i < index -1; i++)
 			{
@@ -118,4 +118,23 @@ public class LinkedList<T> {
 			size--;
 		}	
 	}
+	 public void sort() {
+	        Node initialStart = head, index = null;
+	        if (head == null) {
+	            System.out.println("List is empty");
+	            return;
+	        }
+	        while (initialStart != null) {
+	            index = initialStart.getNext();
+	            while (index != null) {
+	                if (initialStart.getData() > index.getData()) {
+	                    int temp = initialStart.getData();
+	                    initialStart.setData(index.getData());
+	                    index.setData(temp);
+	                }
+	                index = index.getNext();
+	            }
+	            initialStart = initialStart.getNext();
+	        }
+	    }		 
 }
